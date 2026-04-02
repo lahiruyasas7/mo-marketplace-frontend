@@ -11,7 +11,7 @@ function App() {
     <>
       <BrowserRouter>
         {/* <AuthEventBridge /> */}
-        {(isAuthenticated) && <Navbar />}
+        {isAuthenticated && <Navbar />}
         <Routes>
           {/* Public routes */}
           <Route path="/auth" element={<AuthPage />} />

@@ -99,7 +99,7 @@ export default function AuthPage() {
                   type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
                   className="pl-10 pr-10"
-                  autoComplete='off'
+                  autoComplete="off"
                 />
                 <button
                   type="button"
