@@ -7,7 +7,7 @@ export const loginApi = async (data: LoginPayload): Promise<AuthResponse> => {
 };
 
 export const signupApi = async (data: SignupPayload): Promise<AuthResponse> => {
-  const res = await api.post('/auth/register', data);
+  const res = await api.post('/auth/register/user', data);
   return res.data;
 };
 
