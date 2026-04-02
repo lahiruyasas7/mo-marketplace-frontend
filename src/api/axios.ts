@@ -2,7 +2,7 @@ import axios from 'axios';
 import { refreshToken } from './api';
 
 export const api = axios.create({
-  baseURL: import.meta.env.NEXT_PUBLIC_API_URL,
+  baseURL: import.meta.env.VITE_APP_API_URL,
   withCredentials: true, // required for cookies
 });
 
