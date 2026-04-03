@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useProduct } from '@/hooks/products/useProduct';
 import { useQuickBuy } from '@/hooks/products/useQuickBuy';
 import type { ProductDetail } from '@/types/product.types';
+import { toast } from 'sonner';
 
 const CheckoutPage = () => {
   const [params] = useSearchParams();
@@ -40,11 +41,11 @@ const CheckoutPage = () => {
       },
       {
         onSuccess: () => {
-          alert('Order placed successfully!');
+          toast.success('Order placed successfully!');
           navigate('/products');
         },
         onError: (err: any) => {
-          alert(err?.response?.data?.message || 'Failed to order');
+          toast.error(err?.response?.data?.message || 'Failed to order');
         },
       }
     );

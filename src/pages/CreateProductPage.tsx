@@ -96,6 +96,7 @@ import { useCreateProduct } from '@/hooks/products/useCreateProduct';
 
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 const CreateProductPage = () => {
   const { mutate, isPending, error } = useCreateProduct();
@@ -128,7 +129,7 @@ const CreateProductPage = () => {
   const onSubmit: SubmitHandler<CreateProductFormValues> = (data) => {
     mutate(data, {
       onSuccess: () => {
-        alert('Product created successfully');
+        toast.success('Product created successfully');
 
         form.reset({
           name: '',
@@ -147,7 +148,7 @@ const CreateProductPage = () => {
         });
       },
       onError: (err: any) => {
-        alert(err?.response?.data?.message || 'Something went wrong');
+        toast.error(err?.response?.data?.message || 'Something went wrong');
       },
     });
   };
