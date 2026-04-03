@@ -14,3 +14,8 @@ export const createProduct = async (data: CreateProductFormValues) => {
   const res = await api.post('/product', data);
   return res.data;
 };
+
+export const getProductById = async (id: string) => {
+  const { data } = await api.get(`/product/${id}`);
+  return data;
+};
