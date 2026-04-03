@@ -19,3 +19,12 @@ export const getProductById = async (id: string) => {
   const { data } = await api.get(`/product/${id}`);
   return data;
 };
+
+export const quickBuy = async (payload: {
+  productId: string;
+  variantId: string;
+  quantity: number;
+}) => {
+  const { data } = await api.post('/order/quick-buy', payload);
+  return data;
+};
