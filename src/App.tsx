@@ -4,6 +4,7 @@ import AuthPage from './pages/AuthPage';
 import ProductListPage from './pages/ProductListPage';
 import Navbar from './components/Navbar';
 import { useAuthStore } from './store/auth.store';
+import CreateProductPage from './pages/CreateProductPage';
 
 function App() {
   const { isAuthenticated } = useAuthStore();
@@ -19,8 +20,9 @@ function App() {
           {/* Protected routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/products" element={<ProductListPage />} />
+            <Route path="/products/create" element={<CreateProductPage />} />
             {/* 
-              <Route path="/products/create"        element={<ProductCreatePage />} />
+              
               <Route path="/products/:id"           element={<ProductDetailPage />} /> */}
           </Route>
 
