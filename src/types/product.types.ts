@@ -24,3 +24,20 @@ export interface GetProductsParams {
   limit?: number;
   search?: string;
 }
+
+export interface Variant {
+  id: string;
+  combination_key: string;
+  options: Record<string, string>;
+  price: number;
+  stock: number;
+  is_active: boolean;
+}
+
+export interface ProductDetail {
+  id: string;
+  name: string;
+  description: string;
+  options: Record<string, string[]>;
+  variants: Variant[];
+}
