@@ -88,7 +88,11 @@ const VariantForm = ({ fieldArray, register, errors }: Props) => {
             )}
           </div>
 
-          <button type="button" onClick={() => remove(index)} className="text-red-500 ml-2 cursor-pointer">
+          <button
+            type="button"
+            onClick={() => remove(index)}
+            className="text-red-500 ml-2 cursor-pointer"
+          >
             Remove
           </button>
         </div>

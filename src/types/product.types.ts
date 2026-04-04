@@ -5,7 +5,7 @@ export interface Product {
   min_price: number;
   max_price: number;
   total_variants: number;
-  productImageUrl?: string; 
+  productImageUrl?: string;
 }
 
 export interface ProductMeta {
