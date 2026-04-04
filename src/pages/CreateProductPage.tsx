@@ -163,7 +163,7 @@ const CreateProductPage = () => {
         <Button
           type="submit"
           disabled={isPending}
-          className="w-full bg-black text-white py-2 rounded"
+          className="w-full bg-black text-white py-2 rounded cursor-pointer"
         >
           {isPending ? 'Creating...' : 'Create Product'}
         </Button>

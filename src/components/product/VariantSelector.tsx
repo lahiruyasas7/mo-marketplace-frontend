@@ -33,7 +33,7 @@ const VariantSelector = ({ options, selected, onChange, variants }: Props) => {
                   key={value}
                   disabled={!available}
                   onClick={() => onChange(key, value)}
-                  className={`px-3 py-1 border rounded
+                  className={`px-3 py-1 border rounded cursor-pointer
                     ${isSelected ? 'bg-black text-white' : ''}
                     ${!available ? 'opacity-50 cursor-not-allowed' : ''}
                   `}

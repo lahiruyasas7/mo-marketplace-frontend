@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {/* New Product */}
           <Link to="/products/create">
-            <Button size="sm" className="gap-2">
+            <Button size="sm" className="gap-2 cursor-pointer">
               <ShoppingBag className="h-4 w-4" />
               New Product
             </Button>

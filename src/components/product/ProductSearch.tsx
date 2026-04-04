@@ -20,7 +20,7 @@ const ProductSearch = ({ onSearch }: Props) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <button className="px-4 py-2 bg-black text-white rounded">Search</button>
+      <button className="px-4 py-2 bg-black text-white rounded cursor-pointer">Search</button>
     </form>
   );
 };

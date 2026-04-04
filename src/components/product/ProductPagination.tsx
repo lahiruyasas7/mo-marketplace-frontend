@@ -10,7 +10,7 @@ const ProductPagination = ({ page, totalPages, onChange }: Props) => {
       <button
         disabled={page === 1}
         onClick={() => onChange(page - 1)}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer"
       >
         Prev
       </button>
@@ -22,7 +22,7 @@ const ProductPagination = ({ page, totalPages, onChange }: Props) => {
       <button
         disabled={page === totalPages}
         onClick={() => onChange(page + 1)}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer"
       >
         Next
       </button>

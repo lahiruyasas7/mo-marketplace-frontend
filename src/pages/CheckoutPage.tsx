@@ -90,7 +90,7 @@ const CheckoutPage = () => {
       <button
         onClick={handleConfirm}
         disabled={isPending}
-        className="w-full bg-green-600 text-white py-2 rounded"
+        className="w-full bg-green-600 text-white py-2 rounded cursor-pointer"
       >
         {isPending ? 'Processing...' : 'Confirm Order'}
       </button>

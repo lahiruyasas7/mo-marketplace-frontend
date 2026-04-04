@@ -88,7 +88,7 @@ const VariantForm = ({ fieldArray, register, errors }: Props) => {
             )}
           </div>
 
-          <button type="button" onClick={() => remove(index)} className="text-red-500 ml-2">
+          <button type="button" onClick={() => remove(index)} className="text-red-500 ml-2 cursor-pointer">
             Remove
           </button>
         </div>
@@ -107,7 +107,7 @@ const VariantForm = ({ fieldArray, register, errors }: Props) => {
             stock: 0,
           })
         }
-        className="px-4 py-2 bg-gray-200 rounded"
+        className="px-4 py-2 bg-gray-200 rounded cursor-pointer"
       >
         + Add Variant
       </button>
