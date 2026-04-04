@@ -40,7 +40,7 @@ const ProductDetailPage = () => {
             <img
               src={data.productImageUrl}
               alt={data.name}
-              className="w-full h-full object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
+              className="w-full h-full object-contain transform transition-transform duration-300 ease-in-out hover:scale-105"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400 text-sm">
