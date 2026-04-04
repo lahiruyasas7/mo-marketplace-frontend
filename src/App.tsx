@@ -4,6 +4,9 @@ import AuthPage from './pages/AuthPage';
 import ProductListPage from './pages/ProductListPage';
 import Navbar from './components/Navbar';
 import { useAuthStore } from './store/auth.store';
+import CreateProductPage from './pages/CreateProductPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   const { isAuthenticated } = useAuthStore();
@@ -11,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         {/* <AuthEventBridge /> */}
-        {(isAuthenticated) && <Navbar />}
+        {isAuthenticated && <Navbar />}
         <Routes>
           {/* Public routes */}
           <Route path="/auth" element={<AuthPage />} />
@@ -19,9 +22,9 @@ function App() {
           {/* Protected routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/products" element={<ProductListPage />} />
-            {/* 
-              <Route path="/products/create"        element={<ProductCreatePage />} />
-              <Route path="/products/:id"           element={<ProductDetailPage />} /> */}
+            <Route path="/products/create" element={<CreateProductPage />} />
+            <Route path="/products/:id" element={<ProductDetailPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Route>
 
           {/* Default redirect */}

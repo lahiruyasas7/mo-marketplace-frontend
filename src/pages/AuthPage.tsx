@@ -11,7 +11,7 @@ import {
 } from '../schemas/auth.schema';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
+import { ArrowRight, Eye, EyeOff, Loader2, Lock, Mail, User } from 'lucide-react';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -99,7 +99,7 @@ export default function AuthPage() {
                   type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
                   className="pl-10 pr-10"
-                  autoComplete='off'
+                  autoComplete="off"
                 />
                 <button
                   type="button"
@@ -139,8 +139,17 @@ export default function AuthPage() {
               disabled={loading}
               className="w-full bg-black text-white cursor-pointer"
             >
-              {isLogin ? 'Sign In' : 'Create Account'}
-              <ArrowRight className="ml-2 w-4 h-4" />
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                  {isLogin ? 'Signing in...' : 'Creating account...'}
+                </>
+              ) : (
+                <>
+                  {isLogin ? 'Sign In' : 'Create Account'}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </>
+              )}
             </Button>
           </form>
           {/* Toggle between Login/Signup */}

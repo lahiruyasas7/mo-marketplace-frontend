@@ -1,0 +1,37 @@
+import { useNavigate } from 'react-router-dom';
+import type { Variant } from '@/types/product.types';
+
+interface Props {
+  productId: string | undefined;
+  variant: Variant | null;
+}
+
+const QuickBuy = ({ productId, variant }: Props) => {
+  const navigate = useNavigate();
+
+  const handleBuy = () => {
+    if (!variant) {
+      alert('Please select a variant');
+      return;
+    }
+
+    if (variant.stock === 0) {
+      alert('Out of stock');
+      return;
+    }
+
+    navigate(`/checkout?productId=${productId}&variantId=${variant.id}`);
+  };
+
+  return (
+    <button
+      onClick={handleBuy}
+      disabled={!variant || variant.stock === 0}
+      className="w-full mt-4 bg-black text-white py-2 rounded disabled:opacity-50"
+    >
+      Quick Buy
+    </button>
+  );
+};
+
+export default QuickBuy;
