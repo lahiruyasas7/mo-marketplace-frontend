@@ -27,7 +27,7 @@ const QuickBuy = ({ productId, variant }: Props) => {
     <button
       onClick={handleBuy}
       disabled={!variant || variant.stock === 0}
-      className="w-full mt-4 bg-black text-white py-2 rounded disabled:opacity-50"
+      className="w-full mt-4 bg-black text-white py-2 rounded disabled:opacity-50 cursor-pointer"
     >
       Quick Buy
     </button>

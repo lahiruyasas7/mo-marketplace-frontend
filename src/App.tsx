@@ -1,12 +1,16 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import ProtectedRoute from './components/ProtectedRoute';
-import AuthPage from './pages/AuthPage';
-import ProductListPage from './pages/ProductListPage';
 import Navbar from './components/Navbar';
+import PageFallback from './components/PageFallback';
 import { useAuthStore } from './store/auth.store';
-import CreateProductPage from './pages/CreateProductPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CheckoutPage from './pages/CheckoutPage';
+
+// Lazy load all page components
+const AuthPage = lazy(() => import('./pages/AuthPage'));
+const ProductListPage = lazy(() => import('./pages/ProductListPage'));
+const CreateProductPage = lazy(() => import('./pages/CreateProductPage'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
 
 function App() {
   const { isAuthenticated } = useAuthStore();
@@ -15,21 +19,23 @@ function App() {
       <BrowserRouter>
         {/* <AuthEventBridge /> */}
         {isAuthenticated && <Navbar />}
-        <Routes>
-          {/* Public routes */}
-          <Route path="/auth" element={<AuthPage />} />
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            {/* Public routes */}
+            <Route path="/auth" element={<AuthPage />} />
 
-          {/* Protected routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/products" element={<ProductListPage />} />
-            <Route path="/products/create" element={<CreateProductPage />} />
-            <Route path="/products/:id" element={<ProductDetailPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-          </Route>
+            {/* Protected routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/products" element={<ProductListPage />} />
+              <Route path="/products/create" element={<CreateProductPage />} />
+              <Route path="/products/:id" element={<ProductDetailPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+            </Route>
 
-          {/* Default redirect */}
-          <Route path="*" element={<Navigate to="/products" replace />} />
-        </Routes>
+            {/* Default redirect */}
+            <Route path="*" element={<Navigate to="/products" replace />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   );

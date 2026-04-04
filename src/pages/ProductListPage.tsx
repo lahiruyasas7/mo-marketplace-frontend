@@ -10,7 +10,7 @@ const ProductListPage = () => {
 
   const { data, isLoading, isError } = useProducts({
     page,
-    limit: 10,
+    limit: 12,
     search,
   });
 

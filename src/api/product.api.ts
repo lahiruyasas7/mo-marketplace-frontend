@@ -11,7 +11,11 @@ export const getProducts = async (params: GetProductsParams): Promise<GetProduct
 };
 
 export const createProduct = async (data: CreateProductFormValues) => {
-  const res = await api.post('/product', data);
+  const res = await api.post('/product', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return res.data;
 };
 
