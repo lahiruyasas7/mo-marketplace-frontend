@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import type { Variant } from '@/types/product.types';
+import { toast } from 'sonner';
 
 interface Props {
   productId: string | undefined;
@@ -11,12 +12,12 @@ const QuickBuy = ({ productId, variant }: Props) => {
 
   const handleBuy = () => {
     if (!variant) {
-      alert('Please select a variant');
+      toast('Please select a variant');
       return;
     }
 
     if (variant.stock === 0) {
-      alert('Out of stock');
+      toast.error('Out of stock');
       return;
     }
 

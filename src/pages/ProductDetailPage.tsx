@@ -62,6 +62,16 @@ const ProductDetailPage = () => {
             variants={data.variants}
           />
 
+          {/* Clear Selection */}
+          {Object.keys(selectedOptions).length > 0 && (
+            <button
+              onClick={() => setSelectedOptions({})}
+              className="mt-2 text-sm text-gray-500 underline cursor-pointer"
+            >
+              Clear selection
+            </button>
+          )}
+
           {/* Variant Info */}
           {selectedVariant ? (
             <div className="mt-6 border p-4 rounded">
